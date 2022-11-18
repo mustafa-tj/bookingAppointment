@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>JS For Beginners</title>
     <link rel="stylesheet" href="style.css">
-    
+
   </head>
   <body>
     <header>
@@ -32,7 +32,7 @@
         <input class="btn" type="submit" value="Submit">
       </form>
 
-      <ul id="users"></ul>
+      <ul id="listOfUsers"></ul>
 
       <!-- <ul class="items">
         <li class="item">Item 1</li>
@@ -57,6 +57,23 @@
 
         // storing in local storage as an object
 
+        // function saveToLocalStorage(event){
+        //     event.preventDefault();
+        //     const name = event.target.name.value;
+        //     const email = event.target.email.value;
+        //     const phone = event.target.phone.value;
+            
+        //     // creating object
+        //     const obj = {
+        //         name,
+        //         email,
+        //         phone
+        //     }
+        //     localStorage.setItem('userDetails',JSON.stringify(obj));
+
+        // }
+
+        //storing multiple users in local storage
         function saveToLocalStorage(event){
             event.preventDefault();
             const name = event.target.name.value;
@@ -69,9 +86,18 @@
                 email,
                 phone
             }
-            localStorage.setItem('userDetails',JSON.stringify(obj));
+            localStorage.setItem(obj.email,JSON.stringify(obj));
+            showNewUserOnScreen(obj);
+        }
+
+        function showNewUserOnScreen(user){
+          const parentNode = document.getElementById('listOfUsers');
+          const childHTML = `<li> ${user.name} - ${user.email}`
+
+          parentNode.innerHTML = parentNode.innerHTML + childHTML
 
         }
+
 
     </script>
   </body>
