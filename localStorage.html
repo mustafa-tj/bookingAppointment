@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>JS For Beginners</title>
     <link rel="stylesheet" href="style.css">
+    
   </head>
   <body>
     <header>
@@ -42,18 +43,36 @@
     
 
     <script>
+        // storing in local storage
+        // function saveToLocalStorage(event){
+        //     event.preventDefault();
+        //     const name = event.target.name.value;
+        //     const email = event.target.email.value;
+        //     const phone = event.target.phone.value;
+
+        //     localStorage.setItem('name',name);
+        //     localStorage.setItem('email',email);
+        //     localStorage.setItem('phone',phone);
+        // }
+
+        // storing in local storage as an object
+
         function saveToLocalStorage(event){
             event.preventDefault();
             const name = event.target.name.value;
             const email = event.target.email.value;
             const phone = event.target.phone.value;
-
-            localStorage.setItem('name',name);
-            localStorage.setItem('email',email);
-            localStorage.setItem('phone',phone);
-
+            
+            // creating object
+            const obj = {
+                name,
+                email,
+                phone
+            }
+            localStorage.setItem('userDetails',JSON.stringify(obj));
 
         }
+
     </script>
   </body>
 </html>
